@@ -1,40 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Video Reels Page
 
-## Getting Started
+## Overview
+This project is a **Video Reels Page** built using **React, Tailwind CSS, and Framer Motion**. It allows users to scroll through a series of videos, interact with them via likes, comments, and sharing options, and view associated product links.
 
-First, run the development server:
+## Features
+- **Autoplaying Videos:** The active video plays automatically, and others pause.
+- **Like Button:** Users can toggle the like button, changing its appearance.
+- **Comments Button:** Placeholder for future commenting functionality.
+- **Sharing Options:** Users can share via **WhatsApp, Email, or Copy Link**.
+- **Progress Bar:** Displays the video playback progress.
+- **Product Links:** Clickable product links appear over the video.
+- **Infinite Scrolling:** Users can seamlessly scroll through the reels.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Thought Process & Design Choices
+
+### 1. **Component Structure**
+- `VideoReel.jsx` - Handles individual video rendering, interactions, and UI elements.
+- `VideoReelsPage.jsx` - Manages scrolling behavior and active video state.
+
+### 2. **User Experience Considerations**
+- **Autoplay Behavior:** The currently visible video plays automatically for an immersive experience.
+- **Snap Scrolling:** Ensures each video takes up the full viewport, mimicking social media reel behavior.
+- **Fixed Header:** The "Reels" title remains at the top for context.
+- **Progress Indicator:** Provides real-time feedback on video playback.
+- **Share Modal:** Opens smoothly and contains multiple sharing options.
+
+### 3. **State Management**
+- **`useState` Hooks:** Manage states like `isMuted`, `liked`, `progress`, and `showShareModal`.
+- **`useEffect` Hooks:** Handle video autoplay, progress tracking, and setting share links.
+
+### 4. **Performance Optimizations**
+- **Lazy Loading Videos:** Uses `preload='auto'` for a smoother experience.
+- **Framer Motion for Animations:** Ensures lightweight and smooth transitions.
+
+## Installation & Running the Project
+
+### Prerequisites
+- Node.js & npm/yarn installed
+- A React environment setup
+
+### Steps to Run
+```sh
+# Clone the repository
+git clone <repo-link>
+cd video-reels-page
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Future Improvements
+- Implement comments functionality.
+- Add backend support for likes and shares.
+- Improve video caching and preloading.
+- Add more sharing options.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Technologies Used
+- **React** - UI rendering
+- **Framer Motion** - Animations
+- **Tailwind CSS** - Styling
+- **React Icons** - Icons for UI elements
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This README provides an overview of the project, its features, and design considerations. 🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
